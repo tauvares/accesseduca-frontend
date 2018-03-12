@@ -2,8 +2,39 @@
 angular.module('accesseducaApp', ['ui.router', 'ngResource', 'ngDialog', 'lbServices', 'ui.bootstrap', 'ui.mask', 'images-resizer'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-      // Rota para a página principal
-      .state('app', {
+      .state('accesseduca', {
+        templateUrl: 'views/accesseduca.html',
+        abstract: true
+      })
+      .state('accesseduca.publico', {
+        templateUrl: 'views/publico.html',
+        abstract: true
+      })
+      .state('accesseduca.publico.mapa', {
+        url: '/',
+        templateUrl: 'views/mapa.html',
+        controller: 'CabecalhoController'
+      })
+      .state('accesseduca.publico.facilitadores', {
+        url: '/',
+        params: {
+          uf: null,
+          ativo: 'S'
+        },
+        templateUrl: 'views/facilitadores.html',
+        controller: 'FacilitadoresController'
+      })
+      .state('accesseduca.publico.novo-facilitador', {
+        url: '/',
+        templateUrl: 'views/novo-facilitador.html',
+        controller: 'FacilitadoresController'
+      })
+      .state('accesseduca.sistema', {
+        url: '/sistema',
+        templateUrl: 'views/sistema.html',
+        abstract: true
+      })
+      .state('accesseduca.sistema.inicio', {
         url: '/',
         views: {
           'cabecalho': {
@@ -11,78 +42,25 @@ angular.module('accesseducaApp', ['ui.router', 'ngResource', 'ngDialog', 'lbServ
             controller: 'CabecalhoController'
           },
           'conteudo': {
-            templateUrl: 'views/mapa.html',
-            controller: 'CabecalhoController'
-          }
-        }
-      })
-      // Rota para a página de usuários
-      .state('app.usuarios', {
-        url: 'Usuarios/:id',
-        views: {
-          'conteudo@': {
             templateUrl: 'views/telalogin.html',
-            controller: 'CabecalhoController'
+            controller: 'LoginController'
           }
         }
       })
-      // Rota para a página de facilitadores
-      .state('app.facilitadores-cadastro', {
-        url: 'Usuarios/:id/facilitadors',
+      .state('accesseduca.sistema.facilitadores', {
+        url: '/',
         views: {
-          'conteudo@': {
+          'cabecalho': {
+            templateUrl: 'views/cabecalho.html',
+            controller: 'CabecalhoController'
+          },
+          'conteudo': {
             templateUrl: 'views/facilitadores-cadastro.html',
             controller: 'FacilitadoresController'
           }
         }
-      })
-      // rota para a página do mapa
-      .state('app.mapa', {
-        url: '/',
-        views: {
-          'conteudo@': {
-            templateUrl: 'views/mapa.html',
-            controller: 'CabecalhoController'
-          }
-        }
-      })
-      // Rota para a página de facilitadores por estado
-      .state('app.facilitadores', {
-        url: 'Facilitadors/:id',
-        params: {
-          uf: null,
-          ativo: 'S'
-        },
-        views: {
-          'conteudo@': {
-            templateUrl: 'views/facilitadores.html',
-            controller: 'FacilitadoresController'
-          }
-        }
-      })
-      // rota para a página de login
-      .state('app.login', {
-        url: '/Usuarios/telalogin',
-        views: {
-          'conteudo@': {
-            templateUrl: 'views/telalogin.html',
-            controller: 'CabecalhoController'
-          }
-        }
-      })
-      // Rota para a página de cadastro de novos facilitadores
-      .state('app.novo-facilitador', {
-        url: 'Facilitadors/:id',
-        /*params: {
-           uf: null,
-           ativo: 'N'
-         },*/
-        views: {
-          'conteudo@': {
-            templateUrl: 'views/novo-facilitador.html',
-            controller: 'FacilitadoresController'
-          }
-        }
       });
+
+
     $urlRouterProvider.otherwise('/');
   });

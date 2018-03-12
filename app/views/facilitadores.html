@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <ul class="breadcrumb">
-        <li><a ui-sref="app">Mapa</a></li>
+        <li><a ui-sref="accesseduca.publico.mapa">Mapa</a></li>
         <li class="active">Facilitadores Por Estado - {{estado}}</li>
       </ul>
     </div>
@@ -11,7 +11,7 @@
       <hr>
     </div>
     <div align="center" class="col-xs-12">
-      <a align="center" type="button" class="button btn btn-success" ui-sref="app.novo-facilitador">Cadastrar novo terapeuta<br>Clique Aqui!</a>
+      <a align="center" type="button" class="button btn btn-success" ui-sref="accesseduca.publico.novo-facilitador">Cadastrar novo terapeuta<br>Clique Aqui!</a>
       <hr>
     </div>
   </div>
@@ -23,13 +23,13 @@
           <uib-accordion-heading>
             <div class="row">
               <div class="col-xs-4 text-center meuContainer">
-                <img class="img-circle" class="meuContainer" ng-src="{{facilitador.foto}}" />
+                <img class="img-circle" class="" ng-src="{{facilitador.foto}}" />
               </div>
               <div class="col-xs-7">
                 <small>Nome: <b>{{facilitador.nome}}</b></small><br>
                 <small> Prof.: <b>{{facilitador.profissao}}</b></small><br>
                 <small> Tel: <b>{{facilitador.fixo}}</b></small><br>
-                <small> Cel: <b>{{facilitador.celular}}</b></small>              
+                <small> Cel: <b>{{facilitador.celular}}</b></small>
               </div>
               <div class="col-xs-1">
                 <i class="pull-right glyphicon" ng-class="{'glyphicon-plus-sign': !expandir, 'glyphicon-minus-sign': expandir}" ng-click="inverte(expandir)"></i>

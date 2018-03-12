@@ -6,6 +6,7 @@ angular.module('accesseducaApp')
       $scope.message = "Loading ...";
       $scope.estado = $stateParams.uf;
       $scope.ativo = $stateParams.ativo;
+
       Facilitador.find({
           filter: {
             where: {uf: $stateParams.uf, ativo: $stateParams.ativo},

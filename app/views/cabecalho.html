@@ -11,12 +11,12 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{active: stateis('app')}"><a ng-click="openHome()"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Início/Mapa</a></li>
-                    <li ng-if="loggedIn" ng-class="{active: stateis('app.facilitadores-cadastro')}"><a ng-click="openFacilitadores({usuarioId})"><i class="fa fa-users"></i> Facilitadores/Módulo de Cadastro</a></li>
+                    <li ng-class="{active: stateis('accesseduca.publico.mapa')}"><a ng-click="openHome()"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Início/Mapa</a></li>
+                    <li ng-if="loggedIn" ng-class="{active: stateis('accesseduca.sistema.facilitadores')}"><a ng-click="openFacilitadores({usuarioId})"><i class="fa fa-users"></i> Facilitadores/Módulo de Cadastro</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-if="!loggedIn"><a ng-click="openLogin()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li ng-if="loggedIn" ng-class="{active: stateis('app.usuarios')}"><a ng-click="openUsuarios({usuarioId})"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{username}}</a></li>
+                    <li ng-if="loggedIn" ng-class="{active: stateis('accesseduca.sistema.usuarios')}"><a ng-click="openUsuarios({usuarioId})"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{username}}</a></li>
                     <li ng-if="loggedIn"><a ng-click="logOut()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                 </ul>
             </div>
